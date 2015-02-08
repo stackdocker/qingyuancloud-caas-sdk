@@ -1,18 +1,26 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-
-  <groupId>com.chinapower.jopenstack</groupId>
-  <artifactId>openstack-project</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  <packaging>jar</packaging>
-
-  <name>openstack-project</name>
-  <url>http://maven.apache.org</url>
-
+  <parent>
+      <groupId>com.powerstack.jopenstack</groupId>
+      <artifactId>jopenstack-project</artifactId>
+      <version>0.0.1-SNAPSHOT</version>
+      <relativePath>project/pom.xml</relativePath>
+  </parent>
+  
+  <artifactId>jpowerstack</artifactId>
+  <packaging>pom</packaging>
+  <name>openstack4j</name>
+  <url>https://github.com/stackdocker/jpowerstack-project</url>
+  
+  <modules>
+    <module>drivers</module>
+    <module>core</module>
+    <module>common</module>
+  </modules>
+  
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <jclouds.version>1.8.0</jclouds.version>
     <org.springframework.version>4.1.4.RELEASE</org.springframework.version>
     <org.eclipse.jetty.version>9.3.0.M1</org.eclipse.jetty.version>
 <!--     <org.eclipse.jetty.version>9.2.7.v20150116</org.eclipse.jetty.version> -->
@@ -52,7 +60,7 @@
 <!--       </repository> -->
   </repositories>
 
-  <!-- to allow downstream projects to access jclouds-resources in plugin config -->
+  <!-- to allow downstream projects to access power-resources in plug-in configure -->
   <pluginRepositories>
     <pluginRepository>
       <id>apache-snapshots</id>
@@ -72,73 +80,8 @@
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
 <!--       <version>3.8.1</version> -->
-      <version>4.12</version>
       <scope>test</scope>
     </dependency>
-    
-    <!-- jclouds dependencies -->
-    <dependency>
-      <groupId>org.apache.jclouds.driver</groupId>
-      <artifactId>jclouds-slf4j</artifactId>
-      <version>${jclouds.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.jclouds.driver</groupId>
-      <artifactId>jclouds-sshj</artifactId>
-      <version>${jclouds.version}</version>
-    </dependency>    
-	<!-- jclouds OpenStack dependencies -->
-	<dependency>
-	  <groupId>org.apache.jclouds.api</groupId>
-	  <artifactId>openstack-keystone</artifactId>
-	  <version>${jclouds.version}</version>
-	</dependency>
-	<dependency>
-	  <groupId>org.apache.jclouds.api</groupId>
-	  <artifactId>openstack-nova</artifactId>
-	  <version>${jclouds.version}</version>
-	</dependency>
-	<dependency>
-	  <groupId>org.apache.jclouds.labs</groupId>
-	  <artifactId>openstack-swift</artifactId>
-	  <version>${jclouds.version}</version>
-	</dependency>
-	<dependency>
-	  <groupId>org.apache.jclouds.api</groupId>
-	  <artifactId>openstack-cinder</artifactId>
-	  <version>${jclouds.version}</version>
-	</dependency>
-	<dependency>
-	  <groupId>org.apache.jclouds.api</groupId>
-	  <artifactId>openstack-trove</artifactId>
-	  <version>${jclouds.version}</version>
-	</dependency>
-	<dependency>
-	  <groupId>org.apache.jclouds.labs</groupId>
-	  <artifactId>openstack-glance</artifactId>
-	  <version>${jclouds.version}</version>
-	</dependency>
-	<dependency>
-	  <groupId>org.apache.jclouds.labs</groupId>
-	  <artifactId>openstack-marconi</artifactId>
-	  <version>${jclouds.version}</version>
-	</dependency>    
-	<dependency>
-	  <groupId>org.apache.jclouds.labs</groupId>
-	  <artifactId>openstack-neutron</artifactId>
-	  <version>${jclouds.version}</version>
-	</dependency>
-	<!-- 3rd party dependencies -->
-	<dependency>
-	  <groupId>ch.qos.logback</groupId>
-	  <artifactId>logback-classic</artifactId>
-	  <version>1.0.13</version>
-	</dependency>
-	<dependency>
-	  <groupId>mysql</groupId>
-	  <artifactId>mysql-connector-java</artifactId>
-	  <version>5.1.25</version>
-	</dependency> 
 	
 	<dependency>
 	    <groupId>org.eclipse.jetty</groupId>
