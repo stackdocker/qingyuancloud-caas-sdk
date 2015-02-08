@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.powerstack.jopenstack</groupId>
+  <artifactId>jopenstack-project</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>pom</packaging>
+
+  <name>power openstack project</name>
+  <url>https://github.com/stackdocker</url>
+  
+  <licenses>
+    <license>
+      <name>The Apache Software License, Version 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+  
+  <issueManagement>
+      <system>JIRA</system>
+      <url>https://github.com/stackdocker</url>
+  </issueManagement>
+  
+  <mailingLists>
+    <mailingList>
+      <name>Developer List</name>
+      <subscribe>dev-subscribe@powerstack.com</subscribe>
+      <unsubscribe>dev-unsubscribe@powerstack.com</unsubscribe>
+      <post>dev@powerstack.com</post>
+      <archive>http://mail-archives.powerstack.com/jopenstack_mbox/jopenstack-dev</archive>
+    </mailingList>
+    <mailingList>
+      <name>Commits List</name>
+      <subscribe>commits-subscribe@powerstack.com</subscribe>
+      <unsubscribe>commits-unsubscribe@powerstack.com</unsubscribe>
+      <archive>http://mail-archives.powerstack.com/jopenstack_mbox/jopenstack-commits</archive>
+    </mailingList>
+    <mailingList>
+      <name>Issues List</name>
+      <subscribe>issues-subscribe@powerstack.com</subscribe>
+      <unsubscribe>issues-unsubscribe@powerstack.com</unsubscribe>
+      <archive>http://mail-archives.powerstack.com/jopenstack_mbox/jopenstack-issues</archive>
+    </mailingList>
+    <mailingList>
+      <name>User List</name>
+      <subscribe>user-subscribe@powerstack.com</subscribe>
+      <unsubscribe>user-unsubscribe@powerstack.com</unsubscribe>
+      <post>user@powerstack.com</post>
+      <archive>http://mail-archives.powerstack.com/jopenstack_mbox/jopenstack-user</archive>
+    </mailingList>    
+  </mailingLists>
+  
+  <distributionManagement>
+    <site>
+      <id>jopenstack-project-vpn-site</id>
+      <url>gitolite3@192.168.70.161:openstack-project</url>
+    </site>
+  </distributionManagement>
+
+  <developers>
+    <developer>
+      <name>YangNing</name>
+      <id>yangning6</id>
+      <email>yangning6 -at- sgepri -dot- sgcc -dot- com -dot- cn</email>
+      <roles>
+        <role>Project Owner</role>
+        <role>Committer</role>
+      </roles>
+    </developer>
+    <developer>
+      <name>Tom TangFeiXiong</name>
+      <id>tangfeixiong</id>
+      <email>tangfx128 -at- hotmail -dot- com</email>
+      <roles>
+        <role>PTL</role>
+        <role>Committer</role>
+        <role>Architect</role>
+      </roles>
+    </developer>
+  </developers>
+  
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <jclouds.version>1.8.0</jclouds.version>
+    <netty-http-client.version>1.6.0-dev</netty-http-client.version>
+  </properties>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <version>4.12</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
+  <dependencies>
+    
+    <!-- jclouds dependencies -->
+    <dependency>
+      <groupId>org.apache.jclouds.driver</groupId>
+      <artifactId>jclouds-slf4j</artifactId>
+      <version>${jclouds.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.jclouds.driver</groupId>
+      <artifactId>jclouds-sshj</artifactId>
+      <version>${jclouds.version}</version>
+    </dependency>    
+	<!-- jclouds OpenStack dependencies -->
+	<dependency>
+	  <groupId>org.apache.jclouds.api</groupId>
+	  <artifactId>openstack-keystone</artifactId>
+	  <version>${jclouds.version}</version>
+	</dependency>
+	<dependency>
+	  <groupId>org.apache.jclouds.api</groupId>
+	  <artifactId>openstack-nova</artifactId>
+	  <version>${jclouds.version}</version>
+	</dependency>
+	<dependency>
+	  <groupId>org.apache.jclouds.labs</groupId>
+	  <artifactId>openstack-swift</artifactId>
+	  <version>${jclouds.version}</version>
+	</dependency>
+	<dependency>
+	  <groupId>org.apache.jclouds.api</groupId>
+	  <artifactId>openstack-cinder</artifactId>
+	  <version>${jclouds.version}</version>
+	</dependency>
+	<dependency>
+	  <groupId>org.apache.jclouds.api</groupId>
+	  <artifactId>openstack-trove</artifactId>
+	  <version>${jclouds.version}</version>
+	</dependency>
+	<dependency>
+	  <groupId>org.apache.jclouds.labs</groupId>
+	  <artifactId>openstack-glance</artifactId>
+	  <version>${jclouds.version}</version>
+	</dependency>
+	<dependency>
+	  <groupId>org.apache.jclouds.labs</groupId>
+	  <artifactId>openstack-marconi</artifactId>
+	  <version>${jclouds.version}</version>
+	</dependency>    
+	<dependency>
+	  <groupId>org.apache.jclouds.labs</groupId>
+	  <artifactId>openstack-neutron</artifactId>
+	  <version>${jclouds.version}</version>
+	</dependency>
+	<!-- 3rd party dependencies -->
+	<dependency>
+	  <groupId>ch.qos.logback</groupId>
+	  <artifactId>logback-classic</artifactId>
+	  <version>1.0.13</version>
+	</dependency>
+	<dependency>
+	  <groupId>mysql</groupId>
+	  <artifactId>mysql-connector-java</artifactId>
+	  <version>5.1.25</version>
+	</dependency> 
+  
+  
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+<!--       <version>3.8.1</version> -->
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
+</project>
