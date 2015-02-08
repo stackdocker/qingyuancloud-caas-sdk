@@ -61,7 +61,6 @@ public class NovaServerList implements Closeable {
         }
     }
     
-	@Override
 	public void close() throws IOException {
 		// TODO Auto-generated method stub
 		Closeables.close(novaApi, true);
