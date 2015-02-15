@@ -1,4 +1,4 @@
-package com.chinapower.jopenstack.computeutil4j;
+package me.tom.openstack_nova;
 
 import com.google.common.collect.ImmutableSet;
 import com.google.common.io.Closeables;

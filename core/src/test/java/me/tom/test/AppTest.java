@@ -1,4 +1,4 @@
-package com.powerstack.jopenstack.core;
+package me.tom.test;
 
 import junit.framework.Test;
 import junit.framework.TestCase;

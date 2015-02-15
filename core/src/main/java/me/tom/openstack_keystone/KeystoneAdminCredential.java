@@ -1,4 +1,4 @@
-package com.chinapower.jopenstack.identityutil4j;
+package me.tom.openstack_keystone;
 
 public final class KeystoneAdminCredential {
     public static String adminURL;
