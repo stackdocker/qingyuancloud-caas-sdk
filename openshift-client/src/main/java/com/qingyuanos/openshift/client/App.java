@@ -4,7 +4,12 @@ import com.openshift.restclient.authorization.BasicAuthorizationStrategy;
 import com.openshift.restclient.authorization.IAuthorizationStrategyVisitor;
 import com.openshift.restclient.authorization.IRequest;
 import com.openshift.restclient.authorization.TokenAuthorizationStrategy;
+import com.openshift.restclient.authorization.URLConnectionRequest;
 import com.openshift.restclient.utils.Base64Coder;
+
+import java.io.*;
+import java.net.URL;
+import java.net.URLConnection;
 
 /**
  * Hello world!
@@ -12,49 +17,54 @@ import com.openshift.restclient.utils.Base64Coder;
  */
 import java.net.URLConnection;
 
-public class App 
-{
+public class App {
 	private BasicAuthorizationStrategy strategy;
 	private URLConnection connection;
 	private IRequest request;
-	private IAuthorizationStrategyVisitor visitor
-	
-    public static void main( String[] args )
-    {
-        System.out.println( "Hello World!" );
-    	String usernamePassword =  String.format("Basic %s", Base64Coder.encode("aUserName:aPassword"));
-        request = withCredential("u", "p")
-        vistor = new AuthStrategyVistor()
-    }
-	
-	private static class AuthStrategyVistor implents IAuthorizationStrategyVisitor {
-		@override
-		void visit(BasicAuthorizationStrategy strategy) {
-			
+	private IAuthorizationStrategyVisitor visitor;
+
+	public static void main(String[] args) {
+		System.out.println("Hello World!");
+		String usernamePassword = String.format("Basic %s", Base64Coder.encode("aUserName:aPassword"));
+		App app = new App();
+		app.request = app.withCredential("u", "p");
+		app.visitor = new App.AuthStrategyVistor();
+	}
+
+	private static class AuthStrategyVistor implements IAuthorizationStrategyVisitor {
+		public void visit(BasicAuthorizationStrategy strategy) {
+
 		}
-		
-		void visit(TokenAuthorizationStrategy tokenAuthorizationStrategy) {
-			
+
+		public void visit(TokenAuthorizationStrategy tokenAuthorizationStrategy) {
+
 		}
 	}
-    
-    private void login() {
-    	strategy = new BasicAuthorizationStrategy("aUserName", "aPassword",null);
+
+	private void login() {
+		strategy = new BasicAuthorizationStrategy("aUserName", "aPassword", null);
 		strategy.authorize(request);
-		strategy.accept(vistor)
-    }
-    
-    private URLConnection withConnection(String theUrl) {
-        // create a url object
-        URL url = new URL(theUrl);
-   
-        // create a urlconnection object
-        URLConnection urlConnection = url.openConnection();    	
-    }
-    
-    private IRequest withCredential(String username, String password) {
-    	URLConnectionRequest req = new URLConnectionRequest(connection)
-    	req.setProperty(username, password)
-    	return req
-    }
+		strategy.accept(visitor);
+	}
+
+	private URLConnection withConnection(String theUrl) {
+		URLConnection urlConnection = null;
+		try {
+			// create a url object
+			URL url = new URL(theUrl);
+
+			// create a urlconnection object
+		    urlConnection = url.openConnection();
+		} catch (IOException ex) {
+			ex.printStackTrace();
+		} finally {
+			return urlConnection;
+		}
+	}
+
+	private IRequest withCredential(String username, String password) {
+		URLConnectionRequest req = new URLConnectionRequest(connection);
+		req.setProperty(username, password);
+		return req;
+	}
 }

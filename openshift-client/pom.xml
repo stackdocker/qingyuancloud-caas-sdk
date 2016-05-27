@@ -3,26 +3,157 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
   <parent>
-    <groupId>com.qingyuanos</groupId>
-    <artifactId>cloud-caas-sdk</artifactId>
+    <groupId>com.qingyuanos.caas</groupId>
+    <artifactId>cloud-sdk</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <relativePath>../pom.xml</relativePath>
   </parent>
-  <artifactId>caas-openshift</artifactId>
+  <artifactId>openshift-client</artifactId>
   <name>openshift client</name>
   
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <osgi.import>
+      !org.junit*,
+      *
+    </osgi.import>
+    <osgi.export>
+      com.qingyuanos.openshift.client*
+    </osgi.export>
+    <osgi.private>
+      com.powerstack.jopenstack.core,
+      com.powerstack.jopenstack.common,
+      me.tom*,
+    </osgi.private>
   </properties>
 
-  <dependencies>
+  <dependencies>    
     <dependency>
-      <groupId>com.mastfrog</groupId>
-      <artifactId>netty-http-client</artifactId>
-      <version>1.6.0-dev</version>
+      <groupId>com.openshift</groupId>
+      <artifactId>openshift-restclient-java</artifactId>
+      <version>4.0.4-SNAPSHOT</version>
       <scope>compile</scope>
+      <optional>true</optional>
+    </dependency>    
+  
+    <!-- Compile Only Dependencies -->
+    <dependency>
+      <groupId>io.sundr</groupId>
+      <artifactId>builder-annotations</artifactId>
+      <version>${sundrio.version}</version>
+      <scope>compile</scope>
+      <optional>true</optional>
     </dependency>
+
+    <dependency>
+      <groupId>org.apache.felix</groupId>
+      <artifactId>org.apache.felix.scr.annotations</artifactId>
+      <version>${scr.annotations.version}</version>
+      <scope>compile</scope>
+      <optional>true</optional>
+    </dependency>
+
+    <!-- Testing Dependencies -->
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>${junit.version}</version>
+      <scope>test</scope>
+    </dependency>
+
+<!--     <dependency> -->
+<!--       <groupId>com.mastfrog</groupId> -->
+<!--       <artifactId>netty-http-client</artifactId> -->
+<!--       <version>1.6.0-dev</version> -->
+<!--       <scope>compile</scope> -->
+<!--     </dependency> -->
+    
   </dependencies>
-  <groupId>com.qingyuanos</groupId>
-  <version>0.0.1-SNAPSHOT</version>
+  
+  <build>
+    <plugins>
+      <plugin>
+       <groupId>org.codehaus.mojo</groupId>
+       <artifactId>exec-maven-plugin</artifactId>
+       <version>1.1.1</version>
+       <executions>
+        <execution>
+         <phase>test</phase>
+         <goals>
+          <goal>java</goal>
+         </goals>
+         <configuration>
+          <mainClass>com.qingyuanos.openshift.client.AppTest</mainClass>
+          <arguments>
+           <argument>kubernetes</argument>
+           <argument>openshift</argument>
+          </arguments>
+         </configuration>
+        </execution>
+       </executions>
+      </plugin>    
+
+      <!-- This plugin provides the capability to build jars. -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <version>${maven.jar.plugin.version}</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>test-jar</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+
+      <!-- The Apache Felix Maven SCR Plugin is a great tool to ease the development of OSGi components and services -->
+      <plugin>
+        <groupId>org.apache.felix</groupId>
+        <artifactId>maven-scr-plugin</artifactId>
+        <version>${maven.scr.plugin.version}</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>scr</goal>
+            </goals>
+            <configuration>
+              <specVersion>1.2</specVersion>
+              <strictMode>true</strictMode>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      
+      <!-- The way BND works is by treating your project as a big collection of classes (e.g., project code, dependencies, and the class path). -->
+      <plugin>
+        <groupId>org.apache.felix</groupId>
+        <artifactId>maven-bundle-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>bundle</id>
+            <phase>package</phase>
+            <goals>
+              <goal>bundle</goal>
+            </goals>
+            <configuration>
+              <instructions>
+                <Bundle-Name>${project.name}</Bundle-Name>
+                <Bundle-SymbolicName>${project.groupId}.${project.artifactId}</Bundle-SymbolicName>
+                <Export-Package>${osgi.export}</Export-Package>
+                <Import-Package>${osgi.import}</Import-Package>
+                <DynamicImport-Package>${osgi.dynamic.import}</DynamicImport-Package>
+                <Private-Package>${osgi.private}</Private-Package>
+                <Require-Bundle>${osgi.bundles}</Require-Bundle>
+                <Bundle-Activator>${osgi.activator}</Bundle-Activator>
+                <Export-Service>${osgi.export.service}</Export-Service>
+              </instructions>
+              <classifier>bundle</classifier>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+  
 </project>

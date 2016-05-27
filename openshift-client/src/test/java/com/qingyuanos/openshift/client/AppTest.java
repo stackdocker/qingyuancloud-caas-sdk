@@ -1,4 +1,4 @@
-package com.powerstack.jopenstack.common;
+package com.qingyuanos.openshift.client;
 
 import junit.framework.Test;
 import junit.framework.TestCase;

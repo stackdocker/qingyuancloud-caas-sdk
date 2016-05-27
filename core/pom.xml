@@ -3,8 +3,8 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
   <parent>
-    <groupId>com.powerstack.jopenstack</groupId>
-    <artifactId>jopenstack-project</artifactId>
+    <groupId>com.qingyuanos</groupId>
+    <artifactId>cloud-caas-sdk</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
   <artifactId>core</artifactId>
@@ -21,4 +21,6 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
+  <groupId>com.qingyuanos</groupId>
+  <version>0.0.1-SNAPSHOT</version>
 </project>

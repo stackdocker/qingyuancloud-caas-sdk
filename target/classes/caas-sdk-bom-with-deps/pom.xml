@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.qingyuanos.caas</groupId>
+    <artifactId>caas-sdk-bom-with-deps</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>CaaS :: Sdk :: Bom with Dependencies</name>
+    <packaging>pom</packaging>
+    <description>Bill of material</description>
+    
+        <url>https://github.com/stackdocker/qingyuancloud-caas-sdk-project</url>    
+        <licenses>
+            <license>
+                <name>The Apache Software License, Version 2.0</name>
+                <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+                <distribution>repo</distribution>
+            </license>
+        </licenses>
+    
+    
+            <developers>
+            <developer>
+                <id>tangfx</id>
+                <name>Tangfx</name>
+                <email>fxtang -at- qingyuanos -dot- com</email>
+            </developer>
+            <developer>
+                <id>tangfeixiong</id>
+                <name>TangFeiXiong</name>
+                <email>tangfx128 -at- hotmail -dot- com</email>
+            </developer>
+        </developers>
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.qingyuanos.caas</groupId>
+                <artifactId>openshift-client</artifactId>
+                <version>0.0.1-SNAPSHOT</version>
+                <scope>compile</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.squareup.okhttp</groupId>
+                <artifactId>okhttp</artifactId>
+                <version>2.2.0</version>
+                <scope>compile</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.squareup.okio</groupId>
+                <artifactId>okio</artifactId>
+                <version>1.2.0</version>
+                <scope>compile</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+    
+        <build>
+            <pluginManagement>
+                <plugins>
+                </plugins>
+            </pluginManagement>
+        </build>
+    
+</project>
