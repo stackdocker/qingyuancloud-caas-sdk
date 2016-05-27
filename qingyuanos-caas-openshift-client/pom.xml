@@ -52,12 +52,18 @@
       <scope>compile</scope>
       <optional>true</optional>
     </dependency>
+    
+    <dependency>
+         <groupId>org.apache.felix</groupId>
+         <artifactId>org.apache.felix.scr.ds-annotations</artifactId>
+         <version>1.2.4</version>
+         <scope>provided</scope>
+    </dependency>
 
     <!-- Testing Dependencies -->
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>${junit.version}</version>
       <scope>test</scope>
     </dependency>
 

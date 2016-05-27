@@ -4,7 +4,7 @@
   <parent>
       <groupId>com.qingyuanos</groupId>
       <artifactId>cass-sdk-project</artifactId>
-      <relativePath>qingyuancloud-caas-sdk-project/pom.xml</relativePath>
+      <relativePath>./qingyuancloud-caas-sdk-project/pom.xml</relativePath>
       <version>1</version>
   </parent>
   
@@ -15,12 +15,6 @@
   <name>qingyuancloud caas sdk</name>  
   <url>https://github.com/stackdocker/qingyuancloud-caas-sdk-project</url>
   
-  <modules>
-    <module>openshift-client</module>
-    
-    
-    
-  </modules>
   
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -46,7 +40,7 @@
     <slf4j.version>1.7.13</slf4j.version>
     <snakeyaml.version>1.16</snakeyaml.version>
 
-    <scr.annotations.version>1.9.12</scr.annotations.version>
+    <scr.annotations.version>1.9.6</scr.annotations.version>
     <sundrio.version>0.2.7</sundrio.version>
 
     <maven.bundle.plugin.version>2.5.4</maven.bundle.plugin.version>
@@ -54,12 +48,12 @@
     <maven.jar.plugin.version>2.6</maven.jar.plugin.version>
     <maven.resources.plugin.version>2.7</maven.resources.plugin.version>
     <maven.surefire.plugin.version>2.18.1</maven.surefire.plugin.version>
-    <maven.scr.plugin.version>1.21.0</maven.scr.plugin.version>
+    <maven.scr.plugin.version>1.20.0</maven.scr.plugin.version>
 
     <maven.compiler.source>1.7</maven.compiler.source>
     <maven.compiler.target>1.7</maven.compiler.target>
 
-    <exec.master>https://localhost:8443</exec.master>
+    <exec.master>https://172.17.4.50:30448</exec.master>
 
     <javadoc.include.deps>false</javadoc.include.deps>
     <javadoc.source.includes />
@@ -458,4 +452,7 @@
       </properties>
     </profile>
   </profiles>
+  <modules>
+  	<module>qingyuanos-openshift-client</module>
+  </modules>
 </project>
