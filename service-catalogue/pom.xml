@@ -3,13 +3,13 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
   <parent>
-    <groupId>com.powerstack.jopenstack</groupId>
-    <artifactId>jopenstack-project</artifactId>
+    <groupId>com.qingyuanos</groupId>
+    <artifactId>cloud-caas-sdk-project</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+    <relativePath>../qingyuancloud-caas-sdk-project/pom.xml</relativePath>
   </parent>
   <artifactId>service-catalogue</artifactId>
-  <name>service-catalogue</name>
-  <url>https://github.com/stackdocker</url>
+  <name>service catalogue</name>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
@@ -26,4 +26,6 @@
       <version>${project.version}</version>
     </dependency>
   </dependencies>
+  <groupId>com.qingyuanos</groupId>
+  <version>0.0.1-SNAPSHOT</version>
 </project>

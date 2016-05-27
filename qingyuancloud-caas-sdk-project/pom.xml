@@ -2,13 +2,13 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.powerstack.jopenstack</groupId>
-  <artifactId>jopenstack-project</artifactId>
+  <groupId>com.qingyuanos</groupId>
+  <artifactId>cloud-caas-sdk-project</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>pom</packaging>
 
-  <name>power openstack project</name>
-  <url>https://github.com/stackdocker</url>
+  <name>qingyuancloud caas sdk project</name>
+  <url>https://github.com/stackdocker/qingyuancloud-caas-sdk-project</url>
   
   <licenses>
     <license>
@@ -26,64 +26,64 @@
   <mailingLists>
     <mailingList>
       <name>Developer List</name>
-      <subscribe>dev-subscribe@powerstack.com</subscribe>
-      <unsubscribe>dev-unsubscribe@powerstack.com</unsubscribe>
-      <post>dev@powerstack.com</post>
-      <archive>http://mail-archives.powerstack.com/jopenstack_mbox/jopenstack-dev</archive>
+      <subscribe>dev-subscribe@qingyuanos.com</subscribe>
+      <unsubscribe>dev-unsubscribe@qingyuanos.com</unsubscribe>
+      <post>dev@qingyuanos.com</post>
+      <archive>http://mail-archives.qingyuanos.com/qingyuanos_mbox/qingyuanos-dev</archive>
     </mailingList>
     <mailingList>
       <name>Commits List</name>
-      <subscribe>commits-subscribe@powerstack.com</subscribe>
-      <unsubscribe>commits-unsubscribe@powerstack.com</unsubscribe>
-      <archive>http://mail-archives.powerstack.com/jopenstack_mbox/jopenstack-commits</archive>
+      <subscribe>commits-subscribe@qingyuanos.com</subscribe>
+      <unsubscribe>commits-unsubscribe@qingyuanos.com</unsubscribe>
+      <archive>http://mail-archives.qingyuanos.com/qingyuanos_mbox/qingyuanos-commits</archive>
     </mailingList>
     <mailingList>
       <name>Issues List</name>
-      <subscribe>issues-subscribe@powerstack.com</subscribe>
-      <unsubscribe>issues-unsubscribe@powerstack.com</unsubscribe>
-      <archive>http://mail-archives.powerstack.com/jopenstack_mbox/jopenstack-issues</archive>
+      <subscribe>issues-subscribe@qingyuanos.com</subscribe>
+      <unsubscribe>issues-unsubscribe@qingyuanos.com</unsubscribe>
+      <archive>http://mail-archives.qingyuanos.com/qingyuanos_mbox/qingyuanos-issues</archive>
     </mailingList>
     <mailingList>
       <name>User List</name>
-      <subscribe>user-subscribe@powerstack.com</subscribe>
-      <unsubscribe>user-unsubscribe@powerstack.com</unsubscribe>
-      <post>user@powerstack.com</post>
-      <archive>http://mail-archives.powerstack.com/jopenstack_mbox/jopenstack-user</archive>
+      <subscribe>user-subscribe@qingyuanos.com</subscribe>
+      <unsubscribe>user-unsubscribe@qingyuanos.com</unsubscribe>
+      <post>user@qingyuanos.com</post>
+      <archive>http://mail-archives.qingyuanos.com/qingyuanos_mbox/qingyuanos-user</archive>
     </mailingList>    
   </mailingLists>
   
   <distributionManagement>
     <site>
-      <id>jopenstack-project-vpn-site</id>
-      <url>gitolite3@192.168.70.161:openstack-project</url>
+      <id>qingyuanos-sdk-project-vpn-site</id>
+      <url>gitolite3@192.168.70.161:qingyuanos-sdk</url>
     </site>
   </distributionManagement>
 
   <developers>
     <developer>
-      <name>YangNing</name>
-      <id>yangning6</id>
-      <email>yangning6 -at- sgepri -dot- sgcc -dot- com -dot- cn</email>
+      <name>Tangfx</name>
+      <id>tangfx</id>
+      <email>fxtang -at- qingyuanos -dot- com</email>
       <roles>
         <role>Project Owner</role>
         <role>Committer</role>
       </roles>
     </developer>
     <developer>
-      <name>Tom TangFeiXiong</name>
+      <name>TangFeiXiong</name>
       <id>tangfeixiong</id>
       <email>tangfx128 -at- hotmail -dot- com</email>
       <roles>
         <role>PTL</role>
         <role>Committer</role>
-        <role>Architect</role>
       </roles>
     </developer>
   </developers>
   
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-<!--     <jclouds.version>1.8.1</jclouds.version> -->
+    <openshift.restclient.version>4.0.4-SNAPSHOT</openshift.restclient.version>
+    <kubernetes.client.version>1.4-SNAPSHOT</kubernetes.client.version>
     <jclouds.version>2.0.0-SNAPSHOT</jclouds.version>
     <netty-http-client.version>1.6.0-dev</netty-http-client.version>
   </properties>
@@ -235,7 +235,8 @@
     
   </dependencies>
 
-  <modules>
-  	<module>service-catalogue</module>
-  </modules>
+  <organization>
+  	<name>qingyuancloud</name>
+  	<url>http://qingyuanos.com</url>
+  </organization>
 </project>

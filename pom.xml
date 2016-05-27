@@ -2,21 +2,20 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
-      <groupId>com.powerstack.jopenstack</groupId>
-      <artifactId>jopenstack-project</artifactId>
+      <groupId>com.qingyuanos</groupId>
+      <artifactId>cloud-caas-sdk-project</artifactId>
       <version>0.0.1-SNAPSHOT</version>
-      <relativePath>project/pom.xml</relativePath>
+      <relativePath>qingyuancloud-caas-sdk-project/pom.xml</relativePath>
   </parent>
   
-  <artifactId>jpowerstack</artifactId>
   <packaging>pom</packaging>
-  <name>openstack4j</name>
-  <url>https://github.com/stackdocker/jpowerstack-project</url>
+  <url>https://github.com/stackdocker/qingyuancloud-caas-sdk-project</url>
   
   <modules>
-    <module>drivers</module>
+    <module>openshift-client</module>
     <module>core</module>
     <module>common</module>
+    <module>service-catalogue</module>
   </modules>
   
   <properties>
@@ -188,4 +187,8 @@
 	</plugins>
   </build>  
   
+  <artifactId>cloud-caas-sdk</artifactId>
+  <name>qingyuancloud caas sdk</name>
+  <groupId>com.qingyuanos</groupId>
+  <version>0.0.1-SNAPSHOT</version>
 </project>
