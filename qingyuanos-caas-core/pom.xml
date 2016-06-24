@@ -3,13 +3,12 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
   <parent>
-    <groupId>com.qingyuanos</groupId>
-    <artifactId>cloud-caas-sdk</artifactId>
+    <groupId>com.qingyuanos.caas</groupId>
+    <artifactId>qingyuancloud-caas-sdk</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <artifactId>core</artifactId>
+  <artifactId>qingyuanos-caas-core</artifactId>
   <name>core</name>
-  <url>https://github.com/stackdocker/jpowerstack-project</url>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
@@ -21,6 +20,4 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
-  <groupId>com.qingyuanos</groupId>
-  <version>0.0.1-SNAPSHOT</version>
 </project>

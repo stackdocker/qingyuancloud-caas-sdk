@@ -1,4 +1,4 @@
-package com.powerstack.jopenstack.common;
+package com.qingyuanos.caas.common;
 
 /**
  * Hello world!

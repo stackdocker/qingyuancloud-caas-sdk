@@ -3,15 +3,12 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
   <parent>
-    <groupId>com.qingyuanos</groupId>
-    <artifactId>cloud-caas-sdk</artifactId>
+    <groupId>com.qingyuanos.caas</groupId>
+    <artifactId>qingyuancloud-caas-sdk</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <groupId>com.qingyuanos</groupId>
-  <artifactId>common</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  <name>common</name>
-  <url>http://maven.apache.org</url>
+  <artifactId>qingyuancloud-caas-common</artifactId>
+  <name>qingyuancloud caas common</name>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>

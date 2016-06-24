@@ -4,11 +4,11 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>com.qingyuanos.caas</groupId>
-    <artifactId>cloud-sdk</artifactId>
+    <artifactId>qingyuancloud-caas-sdk</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <relativePath>../pom.xml</relativePath>
   </parent>
-  <artifactId>openshift-client</artifactId>
+  <artifactId>qingyuanos-caas-openshift-client</artifactId>
   <name>openshift client</name>
   
   <properties>
@@ -89,7 +89,7 @@
           <goal>java</goal>
          </goals>
          <configuration>
-          <mainClass>com.qingyuanos.openshift.client.AppTest</mainClass>
+          <mainClass>com.qingyuanos.openshift.client.App</mainClass>
           <arguments>
            <argument>kubernetes</argument>
            <argument>openshift</argument>
@@ -114,51 +114,51 @@
       </plugin>
 
       <!-- The Apache Felix Maven SCR Plugin is a great tool to ease the development of OSGi components and services -->
-      <plugin>
-        <groupId>org.apache.felix</groupId>
-        <artifactId>maven-scr-plugin</artifactId>
-        <version>${maven.scr.plugin.version}</version>
-        <executions>
-          <execution>
-            <goals>
-              <goal>scr</goal>
-            </goals>
-            <configuration>
-              <specVersion>1.2</specVersion>
-              <strictMode>true</strictMode>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
+<!--       <plugin> -->
+<!--         <groupId>org.apache.felix</groupId> -->
+<!--         <artifactId>maven-scr-plugin</artifactId> -->
+<!--         <version>${maven.scr.plugin.version}</version> -->
+<!--         <executions> -->
+<!--           <execution> -->
+<!--             <goals> -->
+<!--               <goal>scr</goal> -->
+<!--             </goals> -->
+<!--             <configuration> -->
+<!--               <specVersion>1.2</specVersion> -->
+<!--               <strictMode>true</strictMode> -->
+<!--             </configuration> -->
+<!--           </execution> -->
+<!--         </executions> -->
+<!--       </plugin> -->
       
       <!-- The way BND works is by treating your project as a big collection of classes (e.g., project code, dependencies, and the class path). -->
-      <plugin>
-        <groupId>org.apache.felix</groupId>
-        <artifactId>maven-bundle-plugin</artifactId>
-        <executions>
-          <execution>
-            <id>bundle</id>
-            <phase>package</phase>
-            <goals>
-              <goal>bundle</goal>
-            </goals>
-            <configuration>
-              <instructions>
-                <Bundle-Name>${project.name}</Bundle-Name>
-                <Bundle-SymbolicName>${project.groupId}.${project.artifactId}</Bundle-SymbolicName>
-                <Export-Package>${osgi.export}</Export-Package>
-                <Import-Package>${osgi.import}</Import-Package>
-                <DynamicImport-Package>${osgi.dynamic.import}</DynamicImport-Package>
-                <Private-Package>${osgi.private}</Private-Package>
-                <Require-Bundle>${osgi.bundles}</Require-Bundle>
-                <Bundle-Activator>${osgi.activator}</Bundle-Activator>
-                <Export-Service>${osgi.export.service}</Export-Service>
-              </instructions>
-              <classifier>bundle</classifier>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
+<!--       <plugin> -->
+<!--         <groupId>org.apache.felix</groupId> -->
+<!--         <artifactId>maven-bundle-plugin</artifactId> -->
+<!--         <executions> -->
+<!--           <execution> -->
+<!--             <id>bundle</id> -->
+<!--             <phase>package</phase> -->
+<!--             <goals> -->
+<!--               <goal>bundle</goal> -->
+<!--             </goals> -->
+<!--             <configuration> -->
+<!--               <instructions> -->
+<!--                 <Bundle-Name>${project.name}</Bundle-Name> -->
+<!--                 <Bundle-SymbolicName>${project.groupId}.${project.artifactId}</Bundle-SymbolicName> -->
+<!--                 <Export-Package>${osgi.export}</Export-Package> -->
+<!--                 <Import-Package>${osgi.import}</Import-Package> -->
+<!--                 <DynamicImport-Package>${osgi.dynamic.import}</DynamicImport-Package> -->
+<!--                 <Private-Package>${osgi.private}</Private-Package> -->
+<!--                 <Require-Bundle>${osgi.bundles}</Require-Bundle> -->
+<!--                 <Bundle-Activator>${osgi.activator}</Bundle-Activator> -->
+<!--                 <Export-Service>${osgi.export.service}</Export-Service> -->
+<!--               </instructions> -->
+<!--               <classifier>bundle</classifier> -->
+<!--             </configuration> -->
+<!--           </execution> -->
+<!--         </executions> -->
+<!--       </plugin> -->
     </plugins>
   </build>
   

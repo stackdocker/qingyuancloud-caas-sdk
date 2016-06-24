@@ -8,7 +8,6 @@
   <packaging>pom</packaging>
 
   <name>qingyuancloud caas sdk project</name>
-  <url>https://github.com/stackdocker/qingyuancloud-caas-sdk-project</url>
   
   <licenses>
     <license>

@@ -1,3 +1,7 @@
+/**
+ * Hello world!
+ *
+ */
 package com.qingyuanos.openshift.client;
 
 import com.openshift.restclient.authorization.BasicAuthorizationStrategy;
@@ -11,11 +15,6 @@ import java.io.*;
 import java.net.URL;
 import java.net.URLConnection;
 
-/**
- * Hello world!
- *
- */
-import java.net.URLConnection;
 
 public class App {
 	private BasicAuthorizationStrategy strategy;
@@ -32,13 +31,19 @@ public class App {
 	}
 
 	private static class AuthStrategyVistor implements IAuthorizationStrategyVisitor {
+
+		@Override
 		public void visit(BasicAuthorizationStrategy strategy) {
-
+			// TODO Auto-generated method stub
+			
 		}
 
+		@Override
 		public void visit(TokenAuthorizationStrategy tokenAuthorizationStrategy) {
-
+			// TODO Auto-generated method stub
+			
 		}
+		
 	}
 
 	private void login() {
