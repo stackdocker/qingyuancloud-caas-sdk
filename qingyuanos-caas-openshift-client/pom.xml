@@ -75,7 +75,7 @@
 		<dependency>
 			<groupId>com.openshift</groupId>
 			<artifactId>openshift-restclient-java</artifactId>
-			<version>4.0.4-SNAPSHOT</version>
+			<version>${openshift.restclient.version}</version>
 			<scope>compile</scope>
 			<optional>true</optional>
 		</dependency>
