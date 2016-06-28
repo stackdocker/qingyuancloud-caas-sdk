@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>com.qingyuanos</groupId>
-		<artifactId>cass-sdk-project</artifactId>
+		<artifactId>caas-sdk-project</artifactId>
 		<relativePath>./qingyuancloud-caas-sdk-project/pom.xml</relativePath>
 		<version>1</version>
 	</parent>
@@ -34,6 +34,9 @@
 		<felix.scr.annotations.version>1.9.8</felix.scr.annotations.version>
 		<generex.version>0.0.4</generex.version>
 		<jackson.version>2.7.0</jackson.version>
+
+		<openshift.restclient.version>4.0.5.Final</openshift.restclient.version>
+		<kubernetes.client.version>1.3.98</kubernetes.client.version>
 		<kubernetes.model.version>1.2-SNAPSHOT</kubernetes.model.version>
 		<log4j.version>2.5</log4j.version>
 
@@ -164,23 +167,44 @@
 						</execution>
 					</executions>
 				</plugin>
+
+				<!-- The Surefire Plugin is used during the test phase of the build lifecycle 
+					to execute the unit tests of an application. -->
 				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-surefire-plugin</artifactId>
-					<version>2.12</version>
+					<inherited>true</inherited>
+<!-- 					<version>2.12</version> -->
+					<version>2.18.1</version>
 					<configuration>
+						<environmentVariables>
+							<ENV_VAR_EXISTS>value</ENV_VAR_EXISTS>
+							<ENV_VAR_EXISTS_BOOLEAN>true</ENV_VAR_EXISTS_BOOLEAN>
+						</environmentVariables>
 						<argLine>-Dfile.encoding=UTF-8</argLine>
 						<excludes>
 							<exclude>**/*IntegrationTest.java</exclude>
 						</excludes>
 					</configuration>
 				</plugin>
+
 				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-jar-plugin</artifactId>
+<!-- 					<version>${maven.jar.plugin.version}</version> -->
 					<version>2.4</version>
 					<configuration>
 						<outputDirectory>${jar.outputDir}</outputDirectory>
 					</configuration>
+					<executions>
+						<execution>
+							<goals>
+								<goal>test-jar</goal>
+							</goals>
+						</execution>
+					</executions>
 				</plugin>
+				
 				<plugin>
 					<artifactId>maven-source-plugin</artifactId>
 					<executions>
@@ -250,33 +274,7 @@
 					</executions>
 				</plugin>
 
-				<!-- The Surefire Plugin is used during the test phase of the build lifecycle 
-					to execute the unit tests of an application. -->
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-surefire-plugin</artifactId>
-					<inherited>true</inherited>
-					<version>2.18.1</version>
-					<configuration>
-						<environmentVariables>
-							<ENV_VAR_EXISTS>value</ENV_VAR_EXISTS>
-							<ENV_VAR_EXISTS_BOOLEAN>true</ENV_VAR_EXISTS_BOOLEAN>
-						</environmentVariables>
-					</configuration>
-				</plugin>
 
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-jar-plugin</artifactId>
-					<version>${maven.jar.plugin.version}</version>
-					<executions>
-						<execution>
-							<goals>
-								<goal>test-jar</goal>
-							</goals>
-						</execution>
-					</executions>
-				</plugin>
 				<plugin>
 					<groupId>org.apache.felix</groupId>
 					<artifactId>maven-scr-plugin</artifactId>
@@ -520,7 +518,8 @@
 
 	<modules>
 		<module>qingyuanos-caas-openshift-client</module>
-		<module>qingyuanos-catalog-example</module>
+		
+		<module>qingyuanos-caas-core</module>
 	</modules>
 
 </project>

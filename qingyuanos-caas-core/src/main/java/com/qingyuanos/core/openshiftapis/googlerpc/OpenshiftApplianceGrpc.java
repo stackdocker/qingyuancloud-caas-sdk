@@ -238,11 +238,11 @@ public class OpenshiftApplianceGrpc {
 	    }
 	  }
 
-	  public static io.grpc.ServiceDescriptor getServiceDescriptor() {
+/*	  public static io.grpc.ServiceDescriptor getServiceDescriptor() {
 	    return new io.grpc.ServiceDescriptor(SERVICE_NAME,
 	        METHOD_CREATE_ORIGINPROJECT);
 	  }
-
+*/
 	  public static io.grpc.ServerServiceDefinition bindService(
 	      final OpenshiftAppliance serviceImpl) {
 	    return io.grpc.ServerServiceDefinition.builder(SERVICE_NAME/*getServiceDescriptor()*/)
