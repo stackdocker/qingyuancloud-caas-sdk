@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>qingyuanos-caas-openshift-client</name>
+	<name>qingyuanos-caas-openshift-s2i</name>
 	<comment></comment>
 	<projects>
 	</projects>

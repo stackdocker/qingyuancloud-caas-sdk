@@ -1,9 +1,10 @@
-package com.qingyuanos.openshiftapis.googleprotobufengine;
+package com.qingyuanos.openshiftapis.googleprotobufrpc;
 
 import com.qingyuanos.core.googleprotobuf.openshiftapis.ProjectAndBuild.CreateOriginProjectResponse;
+import com.qingyuanos.core.googleprotobuf.openshiftapis.ProjectAndBuild.FindProjectRequest;
+import com.qingyuanos.core.googleprotobuf.openshiftapis.ProjectAndBuild.FindProjectResponse;
 
 import io.grpc.ManagedChannel;
-import io.grpc.ManagedChannelBuilder;
 import io.grpc.internal.GrpcUtil;
 import io.grpc.netty.GrpcSslContexts;
 import io.grpc.netty.NegotiationType;
@@ -21,9 +22,9 @@ import javax.net.ssl.SSLSocketFactory;
 
 import com.qingyuanos.core.googleprotobuf.openshiftapis.ProjectAndBuild.CreateOriginProjectRequest;
 import com.qingyuanos.core.googleprotobuf.openshiftapis.ProjectAndBuild.CreateOriginProjectRequest.Builder;
-import com.qingyuanos.core.openshiftapis.googlerpc.OpenshiftApplianceGrpc;
+import com.qingyuanos.core.googlerpc.openshiftapis.OpenshiftApplianceGrpc;
 
-public class ApiEngine {
+public class APIEngine {
 
 	public CreateOriginProjectResponse createProject(String name, String[] finalizers) throws RuntimeException {
 		Builder txDataBuilder = CreateOriginProjectRequest.newBuilder().setName(name);
@@ -46,18 +47,38 @@ public class ApiEngine {
 		return rxData;
 	}
 
+	public FindProjectResponse findProject(String name) throws RuntimeException {
+		FindProjectRequest txData = FindProjectRequest.newBuilder().setName(name).build();
+		
+		ManagedChannel channel = createChannel();
+		if (channel == null) {
+			throw new RuntimeException("Unexpected");
+		}
+		txrx(channel);
+
+		FindProjectResponse rxData = blockingStub.findProject(txData);
+        
+		return rxData;
+	}
+	
 	private boolean useOkHttp;
 	private String serverHost = "localhost";
 	private int serverPort = 8080;
 	private String serverHostOverride;
 	private boolean useTls = true;
 	private boolean useTestCa;
-
-	protected ManagedChannel createChannel() {
-		ManagedChannel channel = ManagedChannelBuilder.forAddress(serverHost, serverPort)
+	
+	public APIEngine(String serverHost, int serverPort) {
+		this.serverHost = serverHost;
+		this.serverPort = serverPort;	
+		
+/*		ManagedChannel channel = ManagedChannelBuilder.forAddress(serverHost, serverPort)
 		        .usePlaintext(true)
 		        .build();
-		
+*/		
+	}
+
+	protected ManagedChannel createChannel() {
 		if (!useOkHttp) {
 			InetAddress address;
 			try {
@@ -101,12 +122,13 @@ public class ApiEngine {
 		}
 	}
  
-	protected OpenshiftApplianceGrpc.OpenshiftApplianceBlockingStub blockingStub;
 	protected OpenshiftApplianceGrpc.OpenshiftApplianceStub asyncStub;
+	protected OpenshiftApplianceGrpc.OpenshiftApplianceBlockingStub blockingStub;
+	protected OpenshiftApplianceGrpc.OpenshiftApplianceFutureStub futureStub;
 	
 	private void txrx(ManagedChannel channel) {
 	    blockingStub = OpenshiftApplianceGrpc.newBlockingStub(channel);
 		asyncStub = OpenshiftApplianceGrpc.newStub(channel);
-
+        futureStub = OpenshiftApplianceGrpc.newFutureStub(channel);
 	}
 }
