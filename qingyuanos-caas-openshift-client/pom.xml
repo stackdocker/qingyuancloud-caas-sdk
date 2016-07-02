@@ -36,6 +36,18 @@
 			<version>1.2-SNAPSHOT</version>
 		</dependency>
 
+        <!-- https://github.com/grpc/grpc-java/blob/master/SECURITY.md#tls-with-jdk-jetty-alpnnpn -->
+        <!-- http://www.eclipse.org/jetty/documentation/current/alpn-chapter.html#alpn-versions -->
+        <!-- 1.8.0u77    8.1.7.v20160121 -->
+		<!-- 1.8.0u91    8.1.7.v20160121 -->
+		<!-- 1.8.0u92    8.1.8.v20160420 -->
+		<!-- https://mvnrepository.com/artifact/org.mortbay.jetty.alpn/alpn-boot -->
+		<dependency>
+			<groupId>org.mortbay.jetty.alpn</groupId>
+			<artifactId>alpn-boot</artifactId>
+			<version>8.1.7.v20160121</version>
+		</dependency>
+
 		<!-- http://mvnrepository.com/artifact/io.grpc -->
 		<!-- https://github.com/grpc/grpc-java -->
 		<dependency>
@@ -69,7 +81,7 @@
 			<groupId>io.grpc</groupId>
 			<artifactId>grpc-all</artifactId>
 			<version>0.14.1</version>
-<!-- 			<scope>compile</scope> -->
+			<!-- <scope>compile</scope> -->
 		</dependency>
 
 		<dependency>
@@ -181,40 +193,40 @@
 				</executions>
 			</plugin>
 
-<!-- 			<plugin> -->
-<!-- 				<groupId>org.codehaus.mojo</groupId> -->
-<!-- 				<artifactId>exec-maven-plugin</artifactId> -->
-<!-- 				<version>1.1.1</version> -->
-<!-- 				<executions> -->
-<!-- 					<execution> -->
-<!-- 						<phase>test</phase> -->
-<!-- 						<goals> -->
-<!-- 							<goal>java</goal> -->
-<!-- 						</goals> -->
-<!-- 						<configuration> -->
-<!-- 							<mainClass>com.qingyuanos.openshift.client.App</mainClass> -->
-<!-- 							<arguments> -->
-<!-- 								<argument>kubernetes</argument> -->
-<!-- 								<argument>openshift</argument> -->
-<!-- 							</arguments> -->
-<!-- 						</configuration> -->
-<!-- 					</execution> -->
-<!-- 				</executions> -->
-<!-- 			</plugin> -->
+			<!-- <plugin> -->
+			<!-- <groupId>org.codehaus.mojo</groupId> -->
+			<!-- <artifactId>exec-maven-plugin</artifactId> -->
+			<!-- <version>1.1.1</version> -->
+			<!-- <executions> -->
+			<!-- <execution> -->
+			<!-- <phase>test</phase> -->
+			<!-- <goals> -->
+			<!-- <goal>java</goal> -->
+			<!-- </goals> -->
+			<!-- <configuration> -->
+			<!-- <mainClass>com.qingyuanos.openshift.client.App</mainClass> -->
+			<!-- <arguments> -->
+			<!-- <argument>kubernetes</argument> -->
+			<!-- <argument>openshift</argument> -->
+			<!-- </arguments> -->
+			<!-- </configuration> -->
+			<!-- </execution> -->
+			<!-- </executions> -->
+			<!-- </plugin> -->
 
 			<!-- This plugin provides the capability to build jars. -->
-<!-- 			<plugin> -->
-<!-- 				<groupId>org.apache.maven.plugins</groupId> -->
-<!-- 				<artifactId>maven-jar-plugin</artifactId> -->
-<!-- 				<version>${maven.jar.plugin.version}</version> -->
-<!-- 				<executions> -->
-<!-- 					<execution> -->
-<!-- 						<goals> -->
-<!-- 							<goal>test-jar</goal> -->
-<!-- 						</goals> -->
-<!-- 					</execution> -->
-<!-- 				</executions> -->
-<!-- 			</plugin> -->
+			<!-- <plugin> -->
+			<!-- <groupId>org.apache.maven.plugins</groupId> -->
+			<!-- <artifactId>maven-jar-plugin</artifactId> -->
+			<!-- <version>${maven.jar.plugin.version}</version> -->
+			<!-- <executions> -->
+			<!-- <execution> -->
+			<!-- <goals> -->
+			<!-- <goal>test-jar</goal> -->
+			<!-- </goals> -->
+			<!-- </execution> -->
+			<!-- </executions> -->
+			<!-- </plugin> -->
 
 			<!-- The Apache Felix Maven SCR Plugin is a great tool to ease the development 
 				of OSGi components and services -->

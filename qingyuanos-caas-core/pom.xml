@@ -31,13 +31,20 @@
 			<version>${protobuf.version}</version>
 		</dependency>
 
+        <!-- https://github.com/grpc/grpc-java/blob/master/SECURITY.md#getting-netty-tcnative-boringssl-static-from-maven -->
+		<dependency>
+			<groupId>io.netty</groupId>
+			<artifactId>netty-tcnative-boringssl-static</artifactId>
+			<version>1.1.33.Fork18</version>
+		</dependency>
+		
 		<!-- http://mvnrepository.com/artifact/io.grpc -->
 		<!-- https://github.com/grpc/grpc-java -->
-<!-- 		<dependency> -->
-<!-- 			<groupId>io.grpc</groupId> -->
-<!-- 			<artifactId>grpc-all</artifactId> -->
-<!-- 			<version>0.14.1</version> -->
-<!-- 		</dependency> -->
+		<!-- <dependency> -->
+		<!-- <groupId>io.grpc</groupId> -->
+		<!-- <artifactId>grpc-all</artifactId> -->
+		<!-- <version>0.14.1</version> -->
+		<!-- </dependency> -->
 		<dependency>
 			<groupId>io.grpc</groupId>
 			<artifactId>grpc-core</artifactId>
