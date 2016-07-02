@@ -33,11 +33,33 @@ review sub-directory of `java`
  
 ## Tips
 
-Build for Android client
+### Generate Java POJO 
+
+Currently the example message is from another Golang project
+
+* Using Maven plugin
+
+There have various plugins to generate Java contents from Protobuf message in Github, for example: [protobuf-maven-plugin](https://github.com/xolstice/protobuf-maven-plugin)
+
+    [vagrant@localhost qingyuancloud-caas-sdk]$ mvn protobuf:compile -DprotocExecutable=/usr/local/bin/protoc -Dos.detected.classifier=linux-x86_64
+
+* Directly generate from _protoc_ binary
+
+Downlo appropriate bin version, or _make_ from [source](https://github.com/google/protobuf)
+
+    [vagrant@localhost go-to-cloud-1]$ protoc --proto_path=/data/src/github.com/tangfeixiong/go-to-cloud-1/_proto --java_out=/data/src/github.com/tangfeixiong/go-to-cloud-1/_java_generated/openshift-project-and-build/src/main/java/ /data/src/github.com/tangfeixiong/go-to-cloud-1/_proto/paas/ci/openshift/manage_service.proto
+
+note:
+
+In my lab, it won't generate gRPC stub but only message
+
+## Stuff
+
+For Android client
 
 `mvn dependency:get -Dartifact=io.grpc:grpc-okhttp:0.14.1`
 
-MOJO for downloading OS-Specified protoc binary
+For downloader MOJO
 
 `mvn dependency:get -Dartifact=org.apache.maven.plugins:maven-downloader-plugin:1.0`
 
