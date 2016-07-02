@@ -65,7 +65,7 @@ public class APIEngine {
 	private String serverHost = "localhost";
 	private int serverPort = 8080;
 	private String serverHostOverride;
-	private boolean useTls = true;
+	private boolean useTls;
 	private boolean useTestCa;
 	
 	public APIEngine(String serverHost, int serverPort) {
