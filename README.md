@@ -1,5 +1,7 @@
 # QingYuan PaaS for Java
 
+soft-primitive 即：“轻”，“元”
+
 ## Prerequisites
 
 Oracle Java (>= jdk1.7.0_21, succeeded compiled under MacOS) or 
@@ -22,14 +24,19 @@ More detail, please reference
 
 ## References
 
-[Google Protobuf javadoc](https://developers.google.com/protocol-buffers/docs/reference/java/com/google/protobuf/package-summary)
+[gRPC Basics: Java](http://www.grpc.io/docs/tutorials/basic/java.html)
+
+[gRPC Javadoc](http://www.grpc.io/grpc-java/javadoc/io/grpc/stub/package-summary.html)
+
+[Google Protobuf Javadoc](https://developers.google.com/protocol-buffers/docs/reference/java/com/google/protobuf/package-summary)
 
 [Google Protobuf](https://github.com/google/protobuf) Java generated tool:
 
 review sub-directory of `java`
 
-[Google RPC](https://github.com/grpc/grpc-java) TCP or HTTP/2 framework
+[gRPC](https://github.com/grpc/grpc-java) TCP or HTTP/2 framework
 
+[gRPC Spring Boot Starter](https://github.com/LogNet/grpc-spring-boot-starter)
  
 ## Tips
 
