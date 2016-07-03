@@ -12,6 +12,8 @@ Apache Maven (>= 3.3.3)
 
 ## Examples
 
+In *qingyuanos-caas-openshift-s2i* moudle
+
 For example:
 
     [vagrant@localhost soft-primitive-caas]$ java -jar qingyuanos-caas-openshift-client/target/qingyuanos-caas-openshift-client-0.0.1-SNAPSHOT.jar
